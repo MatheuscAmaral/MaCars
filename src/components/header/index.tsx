@@ -11,7 +11,7 @@ export function Header() {
   const [auth, setAuth] = useState(true);
 
   return (
-    <header className="bg-white">
+    <header className="bg-white shadow-sm">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to={"/"} className="-m-1.5 p-1.5">
@@ -30,7 +30,7 @@ export function Header() {
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Features
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
@@ -38,17 +38,17 @@ export function Header() {
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Company
-          </a>
+          </a> */}
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
            {
             auth ? (
-                 <Link to={"/login"} className='flex gap-2 items-center'>
+                <Link to={"/login"} className='flex gap-2 items-center'>
                     <FaUserCircle fontSize={23}/>
                 </Link>
             ) : (
                 <a className='hidden flex gap-2 items-center'>
-                    <Link to={"/dashboard"}>
+                    <Link to={"/dashboard"}>;
                         <FaUserCircle fontSize={23}/>
                     </Link>
                     <FiLogOut fontSize={23}/>
@@ -81,7 +81,7 @@ export function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <a
+                {/* <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
@@ -92,19 +92,22 @@ export function Header() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Company
-                </a>
+                </a> */}
               </div>
               <div className="py-6">
                 {
-                    !   auth ? (
-                        <a className='flex gap-2 items-center'>
-                            <span>Olá, Matheus!</span>
-                            <FiLogOut fontSize={23}/>
+                    auth ? (
+                        <a className='flex gap-5'>
+                            <Link to={"/login"} className='flex gap-2 items-center'>
+                                <FaUserCircle fontSize={23}/>
+                            </Link>
                         </a>
                     ) : (
-                        <a className='flex gap-2 items-center'>
-                            <FaUserCircle fontSize={23}/>
-                            <span>Entrar</span>
+                        <a className='flex flex-col gap-5 '>
+                            <Link to={"/dashboard"}>
+                              <FaUserCircle fontSize={23}/>
+                            </Link>
+                            <FiLogOut fontSize={23}/>
                         </a>
                     )
                 }
