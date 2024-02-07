@@ -12,7 +12,7 @@ export const Home = () => {
     return(
         <Container>
             <section className="flex w-full max-w-4xl mx-auto items-center space-x-2 bg-gray-50 rounded-xl p-5">
-                <Input type="text" placeholder="Digite o nome do carro..." />
+                <Input type="text" className="w-full" placeholder="Digite o nome do carro..." />
                 <Button value={icon} type="submit">Subscribe</Button>
             </section>
 
